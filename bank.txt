@@ -1,0 +1,68 @@
+create table Bank(
+BankName varchar(255) Not NUll,
+BankCode int primary key,
+Address varchar(255) Not null,
+);
+INSERT INTO Bank values('HDFC','1234','kadapa');
+INSERT INTO Bank values('ICICI','567','pune');
+INSERT INTO Bank values('SBI','890','banglore');
+INSERT INTO Bank values('Kotak','405','chennai');
+INSERT INTO Bank values('Union','402' ,'hyderabad');
+ 
+select * from Bank;
+ 
+create table Branch(
+BranchID int primary key,
+BranchName varchar(255) UNIQUE,
+Address varchar(255)NOT NULL,
+BankCode int,
+FOREIGN KEY (BankCode) REFERENCES Bank ON DELETE CASCADE
+);
+
+INSERT INTO BRANCH VALUES('1234','kadapa','KHARADI PUNE','1234');
+INSERT INTO BRANCH VALUES('5678','pune','BNGLR JP','567');
+
+Select * from BRANCH;
+
+create table CUSTOMER(
+CustomerId int PRIMARY KEY,
+Name varchar(255)NOT NULL,
+PhoneNumber int NOT NULL,
+Address varchar(255) not null,
+);
+
+INSERT INTO CUSTOMER values('7890','Ravi','78967','mumbai');
+INSERT INTO CUSTOMER values('6567','Ramu','8976','kolkata');
+
+select * from customer;
+
+create table ACCOUNT(
+AccountNo int PRIMARY KEY,
+AccountTYPE varchar(255) NOT NULL,
+Balance int NOT NULL,
+BranchID int,
+FOREIGN KEY(BranchID)
+REFERENCES Branch ON UPDATE CASCADE
+);
+
+INSERT INTO ACCOUNT values('5678','savings','657890','1234');
+
+select * from account;
+
+create table LOAN(
+LoanID int PRIMARY KEY,
+LoanType varchar(2) CHECK (LoanType IN ('PL', 'HL')) NOT NULL,
+Amount int NOT NULL,
+ BranchID int,
+FOREIGN KEY (BranchID) REFERENCES Branch(BranchID)
+);
+
+INSERT INTO LOAN values('5678','PL','7678','1234');
+
+select * from loan;
+
+select * from Bank;
+select * from branch;
+select * from customer;
+select * from account;
+select * from loan;
