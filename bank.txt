@@ -3,11 +3,11 @@ BankName varchar(255) Not NUll,
 BankCode int primary key,
 Address varchar(255) Not null,
 );
-INSERT INTO Bank values('HDFC','1234','kadapa');
-INSERT INTO Bank values('ICICI','567','pune');
-INSERT INTO Bank values('SBI','890','banglore');
-INSERT INTO Bank values('Kotak','405','chennai');
-INSERT INTO Bank values('Union','402' ,'hyderabad');
+INSERT INTO Bank values('HDFC','1234','Kadapa');
+INSERT INTO Bank values('ICICI','567','Pune');
+INSERT INTO Bank values('SBI','890','Banglore');
+INSERT INTO Bank values('Kotak','405','Chennai');
+INSERT INTO Bank values('Union','402' ,'Hyderabad');
  
 select * from Bank;
  
@@ -19,8 +19,11 @@ BankCode int,
 FOREIGN KEY (BankCode) REFERENCES Bank ON DELETE CASCADE
 );
 
-INSERT INTO BRANCH VALUES('1234','kadapa','KHARADI PUNE','1234');
-INSERT INTO BRANCH VALUES('5678','pune','BNGLR JP','567');
+INSERT INTO BRANCH VALUES('1234','Kadapa','Iti Circle','1234');
+INSERT INTO BRANCH VALUES('5678','Pune',' Kharadi','567');
+INSERT INTO BRANCH VALUES('9876','Bangalore','BNGLR JP','890');
+INSERT INTO BRANCH VALUES('4321','Chennai','Anna Nagar','405');
+INSERT INTO BRANCH VALUES('5432','Hyderabad','Ameerpet','402');
 
 Select * from BRANCH;
 
@@ -31,8 +34,11 @@ PhoneNumber int NOT NULL,
 Address varchar(255) not null,
 );
 
-INSERT INTO CUSTOMER values('7890','Ravi','78967','mumbai');
-INSERT INTO CUSTOMER values('6567','Ramu','8976','kolkata');
+INSERT INTO CUSTOMER values('7890','Sai','78967','Mumbai');
+INSERT INTO CUSTOMER values('6567','Ramu','8976','Kolkata');
+INSERT INTO CUSTOMER values('5890','Teja','68967','Pune');
+INSERT INTO CUSTOMER values('3567','Rahul','5976','Hyderabad');
+INSERT INTO CUSTOMER values('2890','Chandhu','48967','Mumbai');
 
 select * from customer;
 
@@ -46,6 +52,10 @@ REFERENCES Branch ON UPDATE CASCADE
 );
 
 INSERT INTO ACCOUNT values('5678','savings','657890','1234');
+INSERT INTO ACCOUNT values('6677','savings','857890','5678');
+INSERT INTO ACCOUNT values('7674','savings','957898','9876');
+INSERT INTO ACCOUNT values('2673','savings','155690','4321');
+INSERT INTO ACCOUNT values('8678','savings','757480','5432');
 
 select * from account;
 
@@ -57,7 +67,11 @@ Amount int NOT NULL,
 FOREIGN KEY (BranchID) REFERENCES Branch(BranchID)
 );
 
-INSERT INTO LOAN values('5678','PL','7678','1234');
+INSERT INTO LOAN values('5678','PL','17678','1234');
+INSERT INTO LOAN values('1678','HL','76556','5678');
+INSERT INTO LOAN values('6679','PL','70000','9876');
+INSERT INTO LOAN values('4672','PL','46786','4321');
+INSERT INTO LOAN values('5679','HL','35467','5432');
 
 select * from loan;
 
